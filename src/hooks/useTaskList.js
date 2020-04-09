@@ -24,10 +24,8 @@ function updateTaskStatus(status) {
 function taskListReducer(state, action) {
   switch (action.type) {
     case actionTypes.ARCHIVE_TASK:
-      console.log(state);
       return updateTaskStatus("TASK_ARCHIVED")(state, action);
     case actionTypes.PIN_TASK:
-      console.log(state);
       return updateTaskStatus("TASK_PINNED")(state, action);
     default:
       throw new Error(`Unhandled action type: ${action.type}`);

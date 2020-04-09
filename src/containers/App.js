@@ -1,19 +1,12 @@
 import React from "react";
 
-import { TaskList } from "../components";
+import { InboxScreen } from "../components";
 import { useTaskList } from "../hooks";
 
 function App() {
-  const [state, archiveTask, pinTask] = useTaskList();
-  return (
-    <div className="App">
-      <TaskList
-        tasks={state.tasks}
-        onArchiveTask={archiveTask}
-        onPinTask={pinTask}
-      />
-    </div>
-  );
+  const store = useTaskList();
+
+  return <InboxScreen store={store} />;
 }
 
 export default App;
