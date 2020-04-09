@@ -20,6 +20,7 @@ function Task(props) {
         <input
           placeholder="InputTitle"
           readOnly={true}
+          style={{ textOverflow: "ellipsis" }}
           type="text"
           value={props.task.title}
         />
