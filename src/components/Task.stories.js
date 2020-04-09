@@ -1,6 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import { object, withKnobs } from "@storybook/addon-knobs";
+import { select, text, withKnobs } from "@storybook/addon-knobs";
 
 import Task from "./Task";
 
@@ -24,11 +24,29 @@ export const actionsData = {
 };
 
 export const Default = () => (
-  <Task task={object("task", { ...taskData })} {...actionsData} />
+  <Task
+    task={{
+      ...taskData,
+      title: text("Title", taskData.title),
+      status: select("Status", {
+        Inbox: "TASK_INBOX",
+        Pinned: "TASK_PINNED",
+        Archived: "TASK_ARCHIVED",
+      }),
+    }}
+    {...actionsData}
+  />
 );
 
 export const Pinned = () => (
-  <Task task={{ ...taskData, status: "TASK_PINNED" }} {...actionsData} />
+  <Task
+    task={{
+      ...taskData,
+      title: text("title", taskData.title),
+      status: "TASK_PINNED",
+    }}
+    {...actionsData}
+  />
 );
 
 export const Archived = () => (
