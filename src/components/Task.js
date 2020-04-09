@@ -16,7 +16,7 @@ function Task(props) {
           onClick={() => props.onArchiveTask(props.task.id)}
         />
       </label>
-      <div className="title">
+      <div className="title" style={{ background: "red" }}>
         <input
           placeholder="InputTitle"
           readOnly={true}
