@@ -28,11 +28,15 @@ export const Default = () => (
     task={{
       ...taskData,
       title: text("Title", taskData.title),
-      status: select("Status", {
-        Inbox: "TASK_INBOX",
-        Pinned: "TASK_PINNED",
-        Archived: "TASK_ARCHIVED",
-      }),
+      status: select(
+        "Status",
+        {
+          Inbox: "TASK_INBOX",
+          Pinned: "TASK_PINNED",
+          Archived: "TASK_ARCHIVED",
+        },
+        "TASK_INBOX"
+      ),
     }}
     {...actionsData}
   />

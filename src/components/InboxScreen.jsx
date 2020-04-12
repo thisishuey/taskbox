@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import TaskList from "./TaskList";
 
 function InboxScreen(props) {
-  if (props.store.state.error) {
+  if (props.state.error) {
     return (
       <div className="page lists-show">
         <div className="wrapper-message">
@@ -24,31 +24,27 @@ function InboxScreen(props) {
         </h1>
       </nav>
       <TaskList
-        onArchiveTask={props.store.archiveTask}
-        onPinTask={props.store.pinTask}
-        tasks={props.store.state.tasks}
+        onArchiveTask={props.onArchiveTask}
+        onPinTask={props.onPinTask}
+        tasks={props.state.tasks}
       />
     </div>
   );
 }
 
 InboxScreen.propTypes = {
-  store: PropTypes.shape({
-    archiveTask: PropTypes.func,
-    pinTask: PropTypes.func,
-    state: PropTypes.shape({
-      error: PropTypes.string,
-      tasks: PropTypes.array,
-    }),
+  onArchiveTask: PropTypes.func,
+  onPinTask: PropTypes.func,
+  state: PropTypes.shape({
+    error: PropTypes.string,
+    tasks: PropTypes.array,
   }),
 };
 
 InboxScreen.defaultProps = {
-  store: {
-    state: {
-      error: null,
-      tasks: [],
-    },
+  state: {
+    error: null,
+    tasks: [],
   },
 };
 
